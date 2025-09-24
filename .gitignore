@@ -16,6 +16,9 @@
 # Test coverage raporları
 /coverage/
 
+# PHPUnit cache dosyaları
+.phpunit.result.cache
+
 # Log dosyaları
 *.log
 
