@@ -1,0 +1,24 @@
+# Environment dosyaları
+.env
+
+# Vendor dizini
+/vendor/
+
+# Composer lock dosyası (isteğe bağlı)
+# composer.lock
+
+# IDE dosyaları
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Test coverage raporları
+/coverage/
+
+# Log dosyaları
+*.log
+
+# OS dosyaları
+.DS_Store
+Thumbs.db

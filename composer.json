@@ -1,0 +1,34 @@
+{
+    "name": "apo-bozdag/eloquent-orm",
+    "description": "Laravel Eloquent benzeri güçlü ve kullanımı kolay PHP ORM kütüphanesi",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Abdullah Bozdağ",
+            "email": "abdullah@radkod.com",
+            "homepage": "https://github.com/apo-bozdag"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "ext-pdo": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "orm/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit tests/",
+        "test-coverage": "phpunit --coverage-html coverage tests/"
+    }
+}
